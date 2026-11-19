@@ -33,3 +33,114 @@
 .download-actions .store-badges{margin-top:0;display:grid;gap:10px}
 .download-actions .store-badge{width:100%}
 @media(max-width:700px){.store-badges{gap:9px}.store-badge{min-width:0;flex:1 1 190px}.download-actions .store-badges{max-width:350px}}
+
+/* Gallery lightbox */
+.gallery-trigger{display:block;width:100%;padding:0;margin:0;border:0;background:none;cursor:zoom-in;font:inherit;line-height:0}
+.gallery-trigger img{transition:transform .25s ease}
+.gallery-trigger:hover img{transform:scale(1.03)}
+.gallery-trigger:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.lightbox{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:56px 16px 24px;background:rgba(10,24,36,.92);overscroll-behavior:contain}
+.lightbox[hidden]{display:none}
+.lightbox-figure{margin:0;max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.lightbox-img{display:block;max-width:100%;max-height:calc(100vh - 130px);max-height:calc(100dvh - 130px);width:auto;height:auto;object-fit:contain}
+.lightbox-caption{color:#fff;font:500 14px/1.4 var(--sans);text-align:center;max-width:640px}
+.lightbox-close{position:absolute;top:10px;right:14px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:30px;line-height:1;cursor:pointer}
+.lightbox-close:hover{background:rgba(255,255,255,.28)}
+.lightbox-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+body.lightbox-open{overflow:hidden}
+
+/* Contact card: show each project email on its own line */
+.contact-card>a{display:block;margin:0}
+.contact-card>a + a{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+
+/* About the project: organisation logos shown on white tiles above each description */
+.about-org-logo{display:inline-block;margin:32px 0 0;padding:10px 16px;background:#fff;border-radius:14px;line-height:0;box-shadow:0 10px 28px rgba(0,0,0,.22)}
+.about-org-logo img{display:block;width:120px;height:auto;max-width:100%}
+.about-org-logo + p:not(.eyebrow){margin-top:18px}
+@media(max-width:700px){.about-org-logo{margin-top:24px}.about-org-logo img{width:96px;height:auto}}
+
+/* About the project: image shown under the "Smart Card" subtitle */
+.about-smartcard-image{margin:22px 0 0;line-height:0}
+.about-smartcard-image img{display:block;width:120px;height:auto;max-width:100%;border-radius:16px;box-shadow:0 14px 36px rgba(0,0,0,.35)}
+@media(max-width:700px){.about-smartcard-image img{width:96px;height:auto}}
+
+/* About the project: image on the left, text beside it (stacks on small screens) */
+.about-row{display:flex;align-items:center;gap:28px;max-width:860px;margin-top:32px}
+.about-row-top{align-items:flex-start}
+.about-row .about-org-logo{flex:0 0 auto;margin:0}
+.about-row .about-smartcard-image{flex:0 0 auto;margin:0}
+.about-row .about-smartcard-image img{width:120px;height:auto}
+.about-row p:not(.eyebrow){margin:0;flex:1 1 auto;min-width:0}
+.about-project-details h2{margin-top:44px}
+.about-project-details h2 + .about-row{margin-top:20px}
+@media(max-width:700px){
+  .about-row{flex-direction:column;align-items:flex-start;gap:16px;margin-top:26px}
+  .about-row .about-smartcard-image img{width:96px;height:auto}
+  .about-project-details h2{margin-top:36px}
+}
+
+/* Explore the app: app icons replace the decorative text panels */
+.detail-art-icon{background:none;overflow:visible;height:auto;max-height:190px}
+.detail-art-icon:before,.detail-art-icon:after{display:none}
+.detail-art-icon img{display:block;height:170px;width:auto;max-width:100%;object-fit:contain}
+@media(max-width:900px){.detail-art-icon img{height:150px}}
+@media(max-width:700px){.detail-art-icon{height:auto;justify-content:flex-start;align-items:flex-start}.detail-art-icon img{height:120px}}
+
+
+/* Get the app: official store badges inside the page header */
+.get-app-badges{display:flex;flex-wrap:wrap;align-items:flex-start;gap:16px;margin-top:34px}
+.get-app-badge{display:block;width:190px;line-height:0;text-decoration:none}
+.get-app-badge img{display:block;width:100%;height:auto;filter:drop-shadow(0 0 1px rgba(255,255,255,.55)) drop-shadow(0 8px 18px rgba(0,0,0,.28));transition:transform .2s ease}
+a.get-app-badge:hover img{transform:translateY(-2px)}
+a.get-app-badge:focus-visible{outline:3px solid var(--gold);outline-offset:4px;border-radius:10px}
+.get-app-badge.is-pending{cursor:default}
+.get-app-badge.is-pending img{opacity:.78}
+.get-app-badge.is-pending span{display:block;margin-top:8px;color:#dbe4e7;font-size:11px;letter-spacing:.14em;text-transform:uppercase;line-height:1.3;text-align:center}
+@media(max-width:700px){.get-app-badges{gap:12px;margin-top:26px}.get-app-badge{width:160px}}
+
+/* Contact: project email and location shown inside the page header */
+.contact-details{display:flex;flex-wrap:wrap;gap:28px 64px;align-items:flex-start;margin-top:36px;padding:28px 34px;max-width:780px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:6px}
+.contact-detail{min-width:0}
+.contact-detail small{display:block;margin-bottom:12px;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.18em}
+.contact-detail a{display:block;width:fit-content;max-width:100%;color:#fff;font:600 19px/1.3 var(--display);text-decoration:none;border-bottom:1px solid transparent;overflow-wrap:anywhere;transition:color .2s ease,border-color .2s ease}
+.contact-detail a + a{margin-top:12px}
+.contact-detail a:hover,.contact-detail a:focus-visible{color:var(--gold);border-bottom-color:currentColor;outline:none}
+.contact-value{color:#fff;font:600 19px/1.3 var(--display)}
+@media(max-width:700px){.contact-details{gap:22px;padding:22px;margin-top:28px}.contact-detail a,.contact-value{font-size:17px}}
+
+/* Section backgrounds
+   Light sections alternate paper / cream / white; page headers use a deep navy gradient (no photo);
+   a prayer-flag colour line separates every section. */
+.flag-line{display:block;height:6px;background:linear-gradient(90deg,var(--blue) 0 20%,var(--cream) 20% 40%,#b5524a 40% 60%,var(--green) 60% 80%,var(--gold) 80% 100%)}
+.page-hero{position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 120% at 88% 0%,rgba(215,183,123,.20),rgba(215,183,123,0) 60%),linear-gradient(135deg,#0a2538 0%,#12334b 55%,#0e4560 100%)}
+.page-hero .container{position:relative}
+#get-app .page-hero{background:radial-gradient(ellipse 70% 120% at 12% 0%,rgba(215,183,123,.18),rgba(215,183,123,0) 60%),linear-gradient(225deg,#0a2538 0%,#12334b 55%,#0e4560 100%)}
+#more{background:var(--cream)}
+.site-footer{background:#081d2d}
+
+/* Contact header: light shade so it stands apart from the navy "Get the app" header */
+#contact .page-hero{color:var(--navy);background:radial-gradient(ellipse 70% 120% at 88% 0%,rgba(215,183,123,.28),rgba(215,183,123,0) 60%),linear-gradient(180deg,#f7f3ea 0%,#efe8d8 100%)}
+#contact .page-hero h1{color:var(--navy)}
+#contact .page-hero .eyebrow,#contact .page-hero .eyebrow.light{color:#a47e42}
+#contact .page-hero p:not(.eyebrow){color:#5d6d75}
+#contact .contact-details{background:#fff;border:1px solid var(--line);box-shadow:0 12px 32px rgba(18,51,75,.08)}
+#contact .contact-detail small{color:#8c7957}
+#contact .contact-detail a,#contact .contact-value{color:var(--navy)}
+#contact .contact-detail a:hover,#contact .contact-detail a:focus-visible{color:#a47e42}
+
+/* A living project */
+.living-section{background:radial-gradient(circle at 80% 50%,rgba(215,183,123,.16),rgba(215,183,123,0) 44%),var(--paper)}
+.living-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:80px;align-items:center}
+.living-copy .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.living-copy .eyebrow::before{content:"";width:36px;height:1px;background:#b9965a}
+.living-copy h2{font:500 clamp(36px,4.6vw,58px)/1.08 var(--serif);letter-spacing:-.04em;color:var(--navy);margin:0 0 30px;max-width:560px}
+.living-copy h2 em{font-style:italic;color:#a47e42}
+.living-lead{max-width:540px;margin:0 0 26px;color:#46575f;font-size:17px;line-height:1.85}
+.living-note{max-width:520px;margin:0 0 34px;padding-left:18px;border-left:2px solid #d7b77b;color:#6b7a81;font:italic 15px/1.75 var(--serif)}
+.living-figure{margin:0;justify-self:center}
+.living-frame{position:relative;width:250px;margin:0 18px 18px 0}
+.living-frame::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid rgba(164,126,66,.55);border-radius:18px}
+.living-frame img{position:relative;display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 22px 48px rgba(15,40,60,.22)}
+.living-figure figcaption{margin-top:30px;max-width:250px;color:#7a868b;font:italic 12.5px/1.6 var(--serif);text-align:center}
+@media(max-width:900px){.living-grid{gap:48px}}
+@media(max-width:700px){.living-grid{grid-template-columns:1fr;gap:44px}.living-lead{font-size:16px}.living-figure{justify-self:start}.living-frame{width:220px}.living-figure figcaption{max-width:220px;text-align:left}}

@@ -40,3 +40,54 @@
     el.textContent = new Date().getFullYear();
   });
 })();
+
+// Gallery lightbox: opens the original full-size image for each screen in "Explore the experience".
+(() => {
+  const box = document.getElementById('lightbox');
+  if (!box) return;
+  const img = box.querySelector('.lightbox-img');
+  const caption = box.querySelector('.lightbox-caption');
+  const closeBtn = box.querySelector('.lightbox-close');
+  let lastTrigger = null;
+
+  const open = (trigger) => {
+    const thumb = trigger.querySelector('img');
+    lastTrigger = trigger;
+    img.src = trigger.dataset.full;
+    img.alt = thumb ? thumb.alt : '';
+    const title = trigger.closest('figure')?.querySelector('figcaption strong');
+    caption.textContent = title ? title.textContent : '';
+    box.hidden = false;
+    document.body.classList.add('lightbox-open');
+    closeBtn.focus();
+  };
+
+  const close = () => {
+    if (box.hidden) return;
+    box.hidden = true;
+    img.removeAttribute('src');
+    document.body.classList.remove('lightbox-open');
+    if (lastTrigger) lastTrigger.focus();
+  };
+
+  document.querySelectorAll('.gallery-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => open(btn));
+  });
+
+  closeBtn.addEventListener('click', close);
+
+  // Clicking the dark backdrop (anything outside the image) closes the viewer.
+  box.addEventListener('click', (event) => {
+    if (event.target !== img && event.target !== closeBtn) close();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (box.hidden) return;
+    if (event.key === 'Escape') close();
+    // Keep keyboard focus inside the lightbox while it is open.
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      closeBtn.focus();
+    }
+  });
+})();
