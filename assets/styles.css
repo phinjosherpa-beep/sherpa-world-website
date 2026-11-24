@@ -158,3 +158,5 @@ a.get-app-badge:focus-visible{outline:3px solid var(--gold);outline-offset:4px;b
 @media(max-width:700px){.explore-detail{padding:20px 0}.explore-detail p:not(.eyebrow){font-size:15px}.explore-detail ul{font-size:14px}}
 .explore-detail p:not(.eyebrow){color:#56666d}
 .explore-detail ul{color:#46575f}
+
+.about-smartcard-copy{flex:1 1 auto;min-width:0}.about-smartcard-copy h3{font:700 18px var(--display);color:#fff;margin:0 0 12px}.about-smartcard-copy p:not(.eyebrow){margin:0 0 14px}.about-smartcard-copy p:last-child{margin-bottom:0}
