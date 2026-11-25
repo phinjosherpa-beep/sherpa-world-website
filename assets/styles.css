@@ -160,3 +160,27 @@ a.get-app-badge:focus-visible{outline:3px solid var(--gold);outline-offset:4px;b
 .explore-detail ul{color:#46575f}
 
 .about-smartcard-copy{flex:1 1 auto;min-width:0}.about-smartcard-copy h3{font:700 18px var(--display);color:#fff;margin:0 0 12px}.about-smartcard-copy p:not(.eyebrow){margin:0 0 14px}.about-smartcard-copy p:last-child{margin-bottom:0}
+
+/* Acknowledgements (collapsible, inside About) */
+.ack-wrap{max-width:860px;margin-top:44px;padding-top:36px;border-top:1px solid rgba(241,223,187,.25)}
+.ack-toggle{display:inline-flex;align-items:center;gap:14px;min-height:50px;padding:13px 22px;border:1px solid var(--gold);border-radius:4px;background:rgba(255,255,255,.05);color:var(--gold-light);font:700 13px var(--display);letter-spacing:.04em;cursor:pointer;transition:background .2s,transform .2s}
+.ack-toggle:hover{background:rgba(215,183,123,.16);transform:translateY(-1px)}
+.ack-toggle:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+.ack-icon{font-size:20px;line-height:1;color:var(--gold)}
+.ack-panel{margin-top:28px;padding:34px 34px 38px;background:rgba(255,255,255,.06);border:1px solid rgba(241,223,187,.2);border-radius:var(--radius)}
+.ack-panel[hidden]{display:none}
+.page-hero .ack-panel p.ack-intro{max-width:none;margin:0 0 30px;color:#dbe4e7;font-size:15px;line-height:1.8}
+.ack-groups{column-count:2;column-gap:44px}
+.ack-group{break-inside:avoid;margin:0 0 30px}
+.ack-panel h3{font:700 11px var(--display);letter-spacing:.19em;text-transform:uppercase;color:#e4c995;margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid rgba(241,223,187,.22)}
+.ack-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px}
+.ack-list li{display:flex;flex-direction:column;gap:2px;font-size:14px;line-height:1.6;color:#c4d2d8}
+.ack-list strong{color:#fff;font-weight:700}
+.ack-people{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;margin-top:8px;padding-top:30px;border-top:1px solid rgba(241,223,187,.22)}
+.ack-people h3{border-bottom:0;padding-bottom:0}
+.ack-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:9px}
+.ack-chips li{font-size:13px;color:var(--gold-light);border:1px solid rgba(241,223,187,.35);border-radius:999px;padding:6px 13px;line-height:1.3}
+@media(max-width:800px){.ack-groups{column-count:1}.ack-people{grid-template-columns:1fr;gap:28px}.ack-panel{padding:26px 22px 30px}}
+.ack-panel h3.ack-title{font:500 clamp(24px,3vw,32px)/1.2 var(--serif);letter-spacing:-.02em;text-transform:none;color:#fff;margin:0 0 14px;padding:0;border:0}
+.page-hero .ack-panel p.ack-intro{margin-top:0}
+.page-hero .ack-panel p.ack-names{max-width:none;margin:0;color:var(--gold-light);font-size:14px;line-height:1.9}

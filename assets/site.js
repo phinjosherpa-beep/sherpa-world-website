@@ -91,3 +91,26 @@
     }
   });
 })();
+
+// Acknowledgements: show/hide with the button, and open automatically when linked to (e.g. from the footer).
+(() => {
+  const wrap = document.getElementById('acknowledgements');
+  const btn = document.getElementById('ack-toggle');
+  const panel = document.getElementById('ack-panel');
+  if (!wrap || !btn || !panel) return;
+  const icon = btn.querySelector('.ack-icon');
+  const setOpen = (open) => {
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    if (icon) icon.textContent = open ? '\u2212' : '+';
+  };
+  btn.addEventListener('click', () => setOpen(panel.hidden));
+  const openFromLink = () => {
+    if (location.hash === '#acknowledgements') {
+      setOpen(true);
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+  window.addEventListener('hashchange', openFromLink);
+  openFromLink();
+})();
